@@ -423,7 +423,7 @@
       }
       zoomOptions = _extends({
         margin: 0,
-        background: "#fff",
+        background: "var(--bg-color)",
         scrollOffset: 40,
         container: null,
         template: null
@@ -453,5 +453,5 @@
   });
 
 mediumZoom(document.querySelectorAll('div.post-content img'), {
-    background: '#fff'
+    background: 'var(--bg-color)'
 });

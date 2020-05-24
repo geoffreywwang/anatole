@@ -1,11 +1,11 @@
 <html lang="en" data-theme="light">
 <head>
+    {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <title> {{.Site.Params.author}}{{ with .Title }} | {{ . }}{{ end }} </title>
     <meta charset="utf-8">
     {{- hugo.Generator -}}
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="description" content="{{ .Site.Params.description }}">
-    {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" type="text/css">
     {{ range .Site.Params.customCss -}}
     <link rel="stylesheet" href="{{ . | absURL }}" type="text/css">

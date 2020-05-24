@@ -7,12 +7,13 @@
     opacity: 0;
     transition: opacity 300ms;
     will-change: opacity;
+    z-index: 50;
   }
   
   .medium-zoom--opened .medium-zoom-overlay {
     cursor: pointer;
     cursor: zoom-out;
-    opacity: 1;
+    opacity: 0.95;
   }
   
   .medium-zoom-image {
