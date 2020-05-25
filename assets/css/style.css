@@ -3,18 +3,19 @@
   --bg-color:#fff;
   --secondary-bg-color:#eeeeee;
   --heading-color: #5f5f5f;
-  --body-color: rgba(0, 0, 0, 0.7);
-  --post-color: rgba(0, 0, 0, 0.44);
-  --border-color: rgba(0, 0, 0, 0.15);
+  --body-color: rgb(77, 77, 77);
+  --post-color: rgb(143, 143, 143);
+  --border-color: rgb(217, 217, 217);
   --pre-bg-color: #f9f9fd;
   --nav-text-color:#5a5a5a;
   --tag-color: #424242;
-  scroll-padding-top: 70px;
-  transition: all .8s;
+  scroll-padding-top: 70px; /*Used for footnotes (Chrome)*/
+  --fade-time: all 0.5s;
+  transition: var(--fade-time);
 }
 
 html[data-theme='dark'] {
-  --bg-color:#292a2d;
+  --bg-color: rgb(41,42,45);
   --secondary-bg-color:rgb(119, 119, 122);
   --heading-color: rgb(169,169,179);
   --body-color:rgb(169,169,179);
@@ -22,7 +23,7 @@ html[data-theme='dark'] {
   --border-color: rgb(38, 38, 38);
   --pre-bg-color:rgb(33,33,45);
   --nav-text-color:rgb(191, 191, 191);
-  --tag-color: rgb(191, 191, 191) !important;
+  --tag-color: rgb(191, 191, 191);
 }
 
 html {
@@ -49,12 +50,13 @@ a {
   text-decoration: none;
 }
 
+/*Used for footnotes (Safari)*/
 .footnote-ref::before {
-    content: "";
-    display: block;
-    margin-top: -90px;
-    padding-top: 90px;
-    position: absolute;
+  content: "";
+  display: block;
+  margin-top: -90px;
+  padding-top: 90px;
+  position: absolute;
 }
 
 .category {
@@ -91,11 +93,6 @@ pre {
 
 a:link, a:visited {
   opacity: 1;
-  -webkit-transition: all .15s linear;
-  -moz-transition: all .15s linear;
-  -o-transition: all .15s linear;
-  -ms-transition: all .15s linear;
-  transition: all .15s linear;
   color: var(--tag-color);
 }
 
@@ -106,67 +103,71 @@ a:hover, a:active {
 /*basic styles ends*/
 /*animation starts*/
 .animated {
-  transition: all .8s;
+  transition: var(--fade-time);
   -webkit-animation-fill-mode: both;
   -moz-animation-fill-mode: both;
   -ms-animation-fill-mode: both;
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
+
+  /*Fade down animation*/
+  -webkit-animation-duration: 0.8s;
+  -moz-animation-duration: 0.8s;
+  -ms-animation-duration: 0.8s;
+  -o-animation-duration: 0.8s;
+  animation-duration: 0.8s;
 }
 
 .animated.hinge {
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  animation-duration: 1s;
+  /*Fade down animation*/
+  -webkit-animation-duration: 0.8s;
+  -moz-animation-duration: 0.8s;
+  -ms-animation-duration: 0.8s;
+  -o-animation-duration: 0.8s;
+  animation-duration: 0.8s;
 }
 
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(-20px);
+    /*-webkit-transform: translateY(-20px);*/
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
+    /*-webkit-transform: translateY(0);*/
   }
 }
 @-moz-keyframes fadeInDown {
   0% {
     opacity: 0;
-    -moz-transform: translateY(-20px);
+    /*-moz-transform: translateY(-20px);*/
   }
   100% {
     opacity: 1;
-    -moz-transform: translateY(0);
+    /*-moz-transform: translateY(0);*/
   }
 }
 @-o-keyframes fadeInDown {
   0% {
     opacity: 0;
-    -o-transform: translateY(-20px);
+    /*-o-transform: translateY(-20px);*/
   }
   100% {
     opacity: 1;
-    -o-transform: translateY(0);
+    /*-o-transform: translateY(0);*/
   }
 }
 @keyframes fadeInDown {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    /*transform: translateY(-20px);*/
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    /*transform: translateY(0);*/
   }
 }
+
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   -moz-animation-name: fadeInDown;
@@ -348,7 +349,6 @@ a:hover, a:active {
   color: #2F69B3;
 }
 .post .post-content h3 {
-  /*  */
   font-size: 22px;
   font-weight: 600;
 }
@@ -361,6 +361,7 @@ a:hover, a:active {
 }
 .post .post-footer {
   padding: 0 0 10px 0;
+  transition: var(--fade-time);
   border-bottom: 1px solid var(--border-color);
 }
 .post .post-footer .meta {

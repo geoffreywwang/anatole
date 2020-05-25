@@ -1,4 +1,3 @@
-<html lang="en" data-theme="light">
 <head>
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <title> {{.Site.Params.author}}{{ with .Title }} | {{ . }}{{ end }} </title>
