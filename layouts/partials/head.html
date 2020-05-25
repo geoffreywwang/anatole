@@ -2,8 +2,15 @@
     {{ $style := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
     <script type="text/javascript">
         const theme = localStorage.getItem('theme');
-        if (theme === "dark") {
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === "dark" || (userPrefersDark && theme == null)){
             document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            console.log("Dark!");
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            console.log("Light!");
         }
     </script>
     <title> {{.Site.Params.author}}{{ with .Title }} | {{ . }}{{ end }} </title>
