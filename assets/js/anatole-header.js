@@ -10,6 +10,7 @@ function setTheme(style){
 
 // switch themes
 function switchTheme(e) {
+	document.documentElement.classList.remove("loadHtml");
     var theme = getTheme();
     if (theme == 'light') {
         setTheme('dark');
@@ -22,5 +23,4 @@ function switchTheme(e) {
 document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.querySelector('.theme-switch');
     themeSwitcher.addEventListener('click', switchTheme, false);
-    document.documentElement.classList.remove("loadHtml");
 }, false);
