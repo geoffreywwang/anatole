@@ -9,9 +9,7 @@
   --pre-bg-color: #f9f9fd;
   --nav-text-color:#5a5a5a;
   --tag-color: #424242;
-  scroll-padding-top: 70px; /*Used for footnotes (Chrome)*/
   --fade-time: all 0.5s;
-  transition: var(--fade-time);
 }
 
 html[data-theme='dark'] {
@@ -29,6 +27,12 @@ html[data-theme='dark'] {
 html {
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
+  transition: var(--fade-time);
+  scroll-padding-top: 70px; /*Used for footnotes (Chrome)*/
+}
+
+.loadHtml {
+  transition: none !important;
 }
 
 body {

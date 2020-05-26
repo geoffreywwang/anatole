@@ -22,4 +22,5 @@ function switchTheme(e) {
 document.addEventListener('DOMContentLoaded', function() {
     var themeSwitcher = document.querySelector('.theme-switch');
     themeSwitcher.addEventListener('click', switchTheme, false);
+    document.documentElement.classList.remove("loadHtml");
 }, false);
