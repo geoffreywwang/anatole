@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="loadHtml" lang="{{- site.Language.Lang -}}" data-theme="light">
+<html class="loadHtml" lang="{{ .Language }}" data-theme="light">
     {{- partial "head.html" . -}}
     <body>
         {{- partial "sidebar.html" . -}}
         <div class="main">
-            {{ partial "navbar.html" . }}
+            {{- partial "navbar.html" . -}}
             <div class="autopagerize_page_element">
                 <div class="content">
                     {{- block "main" . }}{{- end }}

@@ -54,6 +54,14 @@ a {
   text-decoration: none;
 }
 
+figcaption {
+  line-height: 1.5em;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
 /*Used for footnotes (Safari)*/
 .footnote-ref::before {
   content: "";
